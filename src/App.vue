@@ -7,14 +7,7 @@
       </header>
 
       <main>
-        <article v-for="platformArrivals in stationArrivals" :key="platformArrivals.id">
-          <h2>{{ platformArrivals.platformNumber }}</h2>
-          
-          <article v-for="train in platformArrivals.trains" :key="train.id">
-            <p>{{ train.destinationName }} - {{ train.timeToStation }}</p>
-          </article>
-
-        </article>
+        <arrivals :stationArrivals="stationArrivals"></arrivals>
       </main>
 
     </div>
@@ -23,6 +16,7 @@
 
 <script>
 import {HTTP} from '../http-common';
+import Arrivals from './components/Arrivals.vue';
 
 export default {
   data () {
@@ -52,11 +46,13 @@ export default {
         platformArrivals.trains = platformArrivals.trains.sort((train1, train2) => train1.timeToStation - train2.timeToStation);
         this.stationArrivals.push(platformArrivals);
       });
-      console.log(this.stationArrivals);
     })
     .catch(error => {
       console.log(error);
     });
+  },
+  components: {
+    arrivals: Arrivals
   }
 }
 </script>
