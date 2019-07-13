@@ -21,6 +21,11 @@ export default {
     HTTP.get()
     .then(response => {
       this.stationName = response.data[0].stationName;
+      
+      const platforms = response.data.map(train => train.platformName);
+      const uniquePlatforms = [...new Set(platforms)];
+      const sortedPlatforms = uniquePlatforms.sort((p1, p2) => p1[p1.length -1] - p2[p2.length -1]);
+      console.log(sortedPlatforms);
     })
     .catch(error => {
       console.log(error);    
