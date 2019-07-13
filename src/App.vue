@@ -1,9 +1,18 @@
 <template>
   <div id="app">
     <div class="container">
+
       <header>
         <h1> {{ stationName }} </h1>
       </header>
+
+      <main>
+        <article v-for="platformArrivals in stationArrivals" :key="platformArrivals.id">
+          <h2>{{ platformArrivals.platformNumber }}</h2>
+          <p>Train info here</p>
+        </article>
+      </main>
+
     </div>
   </div>
 </template>
