@@ -11,7 +11,7 @@
           <h2>{{ platformArrivals.platformNumber }}</h2>
           
           <article v-for="train in platformArrivals.trains" :key="train.id">
-            <p>{{ train.destinationName }}</p>
+            <p>{{ train.destinationName }} - {{ train.timeToStation }}</p>
           </article>
 
         </article>
