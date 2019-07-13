@@ -9,7 +9,11 @@
       <main>
         <article v-for="platformArrivals in stationArrivals" :key="platformArrivals.id">
           <h2>{{ platformArrivals.platformNumber }}</h2>
-          <p>Train info here</p>
+          
+          <article v-for="train in platformArrivals.trains" :key="train.id">
+            <p>{{ train.destinationName }}</p>
+          </article>
+
         </article>
       </main>
 
