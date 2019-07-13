@@ -14,21 +14,35 @@ import {HTTP} from '../http-common';
 export default {
   data () {
     return {
-      stationName: 'Portlandia'
+      stationName: '',
+      stationArrivals: []
     }
   },
   created() {
     HTTP.get()
     .then(response => {
       this.stationName = response.data[0].stationName;
-      
+
       const platforms = response.data.map(train => train.platformName);
       const uniquePlatforms = [...new Set(platforms)];
       const sortedPlatforms = uniquePlatforms.sort((p1, p2) => p1[p1.length -1] - p2[p2.length -1]);
-      console.log(sortedPlatforms);
+
+      sortedPlatforms.forEach((platform, index) => {
+        const platformArrivals = { id: index, platformNumber: platform, trains: [] };
+
+        response.data.forEach(train => {
+          if (train.platformName === platform) {
+            platformArrivals.trains.push(train);
+          }
+        });
+
+        platformArrivals.trains = platformArrivals.trains.sort((train1, train2) => train1.timeToStation - train2.timeToStation);
+        this.stationArrivals.push(platformArrivals);
+      });
+      console.log(this.stationArrivals);
     })
     .catch(error => {
-      console.log(error);    
+      console.log(error);
     });
   }
 }
