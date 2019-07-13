@@ -4,17 +4,22 @@
       <h2>{{ platformArrivals.platformNumber }}</h2>
       
       <article v-for="train in platformArrivals.trains" :key="train.id">
-        <p>{{ train.destinationName }} - {{ train.timeToStation }}</p>
+        <train :train="train"></train>
       </article>
-      
+
     </article>
   </div>
 </template>
 
 <script>
+import Train from './Train.vue';
+
 export default {
   props: {
     stationArrivals: Array
+  },
+  components: {
+    train: Train
   }
 }
 </script>
