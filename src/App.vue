@@ -3,6 +3,7 @@
     <div class="container">
 
       <header>
+        <img src="./assets/london-underground.png" alt="The London Underground Logo">
         <h1> {{ stationName }} </h1>
       </header>
 
@@ -46,6 +47,7 @@ export default {
         platformArrivals.trains = platformArrivals.trains.sort((train1, train2) => train1.timeToStation - train2.timeToStation);
         this.stationArrivals.push(platformArrivals);
       });
+      
     })
     .catch(error => {
       console.log(error);
@@ -58,10 +60,32 @@ export default {
 </script>
 
 <style>
+* {
+  box-sizing: border-box;
+}
+
 #app {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0 auto;
   max-width: 800px;
   text-align: center;
+}
+
+.container {
+  background-color: #f5f6fa;
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+img {
+  width: 60px;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-top: 0;
 }
 </style>

@@ -19,5 +19,14 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+p {
+  background-color: #f5f6fa;
+  border-radius: 5px;
+  font-size: 18px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 </style>
