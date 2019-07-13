@@ -28,7 +28,7 @@ export default {
   created() {
     HTTP.get()
     .then(response => {
-      this.stationName = response.data[0].stationName;
+      this.stationName = response.data[0].stationName.split('Underground Station')[0];
 
       const platforms = response.data.map(train => train.platformName);
       const uniquePlatforms = [...new Set(platforms)];
