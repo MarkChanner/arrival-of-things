@@ -30,4 +30,10 @@ export default {
 </script>
 
 <style>
+#app {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 auto;
+  max-width: 800px;
+  text-align: center;
+}
 </style>
