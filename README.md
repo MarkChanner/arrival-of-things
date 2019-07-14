@@ -13,3 +13,7 @@ npm install
 # serve with hot reload at localhost:8080
 npm run dev
 ```
+  
+## Update
+
+I have also attempted a React version of this project which can be found [here](https://github.com/MarkChanner/arrival-of-things-react-version). I am less familiar with React, but it was a great learning exercise.
